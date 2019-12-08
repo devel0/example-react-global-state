@@ -4,6 +4,8 @@
 
 Shows usage of [react-hookstore](https://github.com/jhonnymichel/react-hookstore) library to manage global state across multiple components.
 
+[LIVE DEMO](https://codesandbox.io/s/github/devel0/example-react-global-state)
+
 notes:
 - clicking on a component change global state hooked and attached to all other components that make usage of `useStore`
 - each store can have different name and backing type
