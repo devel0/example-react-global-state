@@ -1,17 +1,16 @@
 import React from 'react';
-import { useStore } from 'react-hookstore';
 import { MyState } from './MyState';
-import { updateMyState } from './App';
+import { useStateNfo } from './StateUtils';
 
 export default function Component2() {
-    const [myState, setMyState] = useStore<MyState>("store1");
+    const myStateNfo = useStateNfo<MyState>("mystore");
 
     return <div>
         <h3>Component2</h3>
-        clicksCount:{myState.clicksCount}<br />
-        name:{myState.name}<br />
-        <br/>
-        <button onClick={() => updateMyState(myState, setMyState, (x) => x.clicksCount++)}>click</button><br/>
-        <input type="text" value={myState.name} onChange={(e) => updateMyState(myState, setMyState, (x) => x.name = e.target.value)} />
+        clicksCount:{myStateNfo.state.clicksCount}<br />
+        name:{myStateNfo.state.name}<br />
+        <br />
+        <button onClick={() => myStateNfo.set((x) => x.clicksCount++)}>click</button><br />
+        <input type="text" value={myStateNfo.state.name} onChange={(e) => myStateNfo.set((x) => x.name = e.target.value)} />
     </div>
 }
