@@ -20,6 +20,9 @@ class stateNfo<T> {
     set(stateChanger: (state: T) => void, callback?: StateCallback<T> | undefined) {
         const q = _.cloneDeep(this._state) as T;
         stateChanger(q);
-        this._setState(q, callback);
+        this._setState(q, () => {
+            if (callback) callback(q);
+            this._state = q;
+        });
     }
 }
