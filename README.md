@@ -15,7 +15,7 @@ notes:
 ## how this project was built
 
 ```sh
-yarn create react-app example-react-global-state --typescript
+yarn create react-app example-react-global-state --template typescript
 cd example-react-global-state/
 yarn add react-hookstore lodash @types/lodash
 echo "BROWSER=none" > .env
